@@ -1,0 +1,25 @@
+name: fir_plugin
+version: 0.0.1
+language: 
+description: fir-cli tool, which could upload your app to fir.im.
+tags:
+ - fir
+ - plugin
+
+public: true
+
+# clone_in_docker: false
+
+inputs:
+  - name: FLOW_FIR_API_TOKEN
+    editable: true
+
+  - name: FLOW_FIR_CHANGELOG
+    editable: true
+    
+  - name: FLOW_FIR_APP_PATH
+    editable: true
+
+outputs:
+
+script_path: ./run.sh
