@@ -18,7 +18,7 @@ steps:
     plugin:
       name: fir_plugin
       inputs:
-        - FLOW_FIR_API_TOKEN=$FLOW_FIR_API_TOKEN
-        - FLOW_FIR_CHANGELOG=$FLOW_FIR_CHANGELOG
-        - FLOW_FIR_APP_PATH=$FLOW_FIR_APP_PATH
+        - FIR_API_TOKEN=$FLOW_FIR_API_TOKEN
+        - FIR_CHANGELOG=$FLOW_FIR_CHANGELOG
+        - FIR_APP_PATH=$FLOW_FIR_APP_PATH
 ```
