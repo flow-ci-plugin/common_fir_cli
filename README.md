@@ -3,9 +3,9 @@ fir-cli tool, which could upload your app to fir.im.
 
 ### INPUTS
 
-* `FLOW_FIR_API_TOKEN` - fir.im api token.
-* `FLOW_FIR_CHANGELOG` - changelog.
-* `FLOW_FIR_APP_PATH` - app absolute path.
+* `FIR_API_TOKEN` - fir.im api token.
+* `FIR_CHANGELOG` - changelog.
+* `FIR_APP_PATH` - app absolute path.
 
 
 ## EXAMPLE 
