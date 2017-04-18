@@ -1,6 +1,6 @@
 name: fir_plugin
 version: 0.0.1
-language: 
+language:
 description: fir-cli tool, which could upload your app to fir.im.
 tags:
  - fir
@@ -12,12 +12,18 @@ public: true
 
 inputs:
   - name: FLOW_FIR_API_TOKEN
+    desc_cn: "fir 的api token,您可以在fir.im 账户设置中找到"
+    desc_en: "fir api token,  which in fir.im account profile page"
     editable: true
 
   - name: FLOW_FIR_CHANGELOG
+    desc_cn: "上传到FIR 的日志"
+    desc_en: "log to fir.im"
     editable: true
-    
+
   - name: FLOW_FIR_APP_PATH
+    desc_cn: "要上传的app 所在的目录"
+    desc_en: "the path of app which you will upload"
     editable: true
 
 outputs:
