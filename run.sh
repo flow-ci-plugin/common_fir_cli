@@ -108,4 +108,24 @@ fir --version
 
 set -e
 echo "fir publish [FLOW_BUILD_APP_PATH] -T [FIR_API_TOKEN] -c [FIR_CHANGELOG]"
-fir publish $FLOW_BUILD_APP_PATH -c $FIR_CHANGELOG -T $FIR_API_TOKEN
+#fir publish $FLOW_BUILD_APP_PATH -c $FIR_CHANGELOG -T $FIR_API_TOKEN
+
+echo "
+require 'fir'
+require 'open3'
+logfile = STDOUT
+FIR.logger       = Logger.new(logfile)
+FIR.logger.level =  Logger::INFO
+FIR.publish(\"${FLOW_BUILD_APP_PATH}\", {token: \"${FIR_API_TOKEN}\", changelog: \"${FIR_CHANGELOG}\"})
+info = FIR.fetch_app_info
+url = \"http://fir.im/#{info[:short]}?release_id=#{info[:master_release_id]}\"
+File.open(\"/tmp/fir-cli.storage\", \"w+\") do |file|
+  file.write(url)
+end
+" > /tmp/fir.rb
+
+ruby /tmp/fir.rb
+if [[ -f /tmp/fir-cli.storage ]]; then
+  export FLOW_STEP_RESULT_URL=$(cat /tmp/fir-cli.storage && rm /tmp/fir-cli.storage)
+  echo $FLOW_STEP_RESULT_URL
+fi
