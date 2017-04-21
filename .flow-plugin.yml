@@ -27,5 +27,6 @@ inputs:
     editable: true
 
 outputs:
+  - name: FLOW_STEP_RESULT_URL
 
 script_path: ./run.sh
