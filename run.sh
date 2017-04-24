@@ -5,7 +5,7 @@
 #   Variables used:
 #     $FLOW_FIR_API_TOKEN
 #     $FLOW_FIR_CHANGELOG
-#     $FIR_APP_PATH
+#     $FLOW_FIR_APP_PATH
 #
 #   Outputs:
 #     $FLOW_FIR_RESULT
@@ -50,7 +50,7 @@ function filter()
     esac
   done
 }
-if [[ -z $FIR_APP_PATH ]]; then
+if [[ -z $FLOW_FIR_APP_PATH ]]; then
   FLOW_FIR_APP_PATH=$(filter "release" 2>&1)
   if [[ -z $FLOW_FIR_APP_PATH ]]; then
     FLOW_FIR_APP_PATH=$(filter "debug" 2>&1)
@@ -66,7 +66,7 @@ if [[ -z $FIR_APP_PATH ]]; then
     fi
   fi
 else
-  FLOW_FIR_APP_PATH=$FLOW_BUILD_PROJECT_PATH/$FIR_APP_PATH
+  FLOW_FIR_APP_PATH=$FLOW_BUILD_PROJECT_PATH/$FLOW_FIR_APP_PATH
 fi
 
 echo $FLOW_FIR_APP_PATH
