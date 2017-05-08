@@ -13,8 +13,8 @@
 # ************************************************************
 
 set +e
-source $HOME/.rvm/scripts/rvm
-rvm use default
+# source $HOME/.rvm/scripts/rvm
+# rvm use default
 
 FLOW_BUILD_PROJECT_PATH=$FLOW_CURRENT_PROJECT_PATH
 IFS=$'\n'
@@ -59,7 +59,7 @@ if [[ -z $FLOW_FIR_APP_PATH ]]; then
       if [[ -z $FLOW_FIR_APP_PATH ]]; then
         FLOW_FIR_APP_PATH=$(filter "random" 2>&1)
         if [[ -z $FLOW_FIR_APP_PATH ]]; then
-          echo "WARNING: can't find .apk file"
+          echo "WARNING: can't find .apk or .ipa file"
           exit 1
         fi
       fi
