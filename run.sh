@@ -109,6 +109,7 @@ fir --version
 set -e
 echo "fir publish [FLOW_FIR_APP_PATH] -T [FLOW_FIR_API_TOKEN] -c [FLOW_FIR_CHANGELOG]"
 #fir publish $FLOW_FIR_APP_PATH -c $FLOW_FIR_CHANGELOG -T $FLOW_FIR_API_TOKEN
+echo $FLOW_FIR_CHANGELOG > /tmp/changelog.info
 
 echo "
 require 'fir'
@@ -116,7 +117,7 @@ require 'open3'
 logfile = STDOUT
 FIR.logger       = Logger.new(logfile)
 FIR.logger.level =  Logger::INFO
-FIR.publish(\"${FLOW_FIR_APP_PATH}\", {token: \"${FLOW_FIR_API_TOKEN}\", changelog: \"${FLOW_FIR_CHANGELOG}\"})
+FIR.publish(\"${FLOW_FIR_APP_PATH}\", {token: \"${FLOW_FIR_API_TOKEN}\", changelog: File.read(\"/tmp/changelog.info\")})
 info = FIR.fetch_app_info
 url = \"http://fir.im/#{info[:short]}?release_id=#{info[:master_release_id]}\"
 File.open(\"/tmp/fir-cli.storage\", \"w+\") do |file|
