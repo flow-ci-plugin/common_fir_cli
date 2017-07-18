@@ -65,8 +65,6 @@ if [[ -z $FLOW_FIR_APP_PATH ]]; then
       fi
     fi
   fi
-else
-  FLOW_FIR_APP_PATH=$FLOW_BUILD_PROJECT_PATH/$FLOW_FIR_APP_PATH
 fi
 
 echo $FLOW_FIR_APP_PATH
